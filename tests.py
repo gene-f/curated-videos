@@ -5,7 +5,7 @@ import create_page
 
 class testVideo(unittest.TestCase):
     def test_create_Video(self):
-        with self.assertRaises(AttributeError):
+        with self.assertRaises(TypeError):
             v = video.Video()
 
         v = video.Video(title="movie", img="img", video_url="url")
