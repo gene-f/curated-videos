@@ -12,11 +12,13 @@ def create_entry_template(p):
     base = (
         '<article>\n'
         '   <h3>{title}</h3>\n'
-        '   <img src="{img}"></img>\n'
-        '   <iframe src="{video_url}"></iframe>\n'
-        '   <p>\n'
-        '       %s'
-        '\n   </p>\n'
+        '   <div class="toggle">\n'
+        '       <img src="{img}"></img>\n'
+        '       <iframe src="{video_url}"></iframe>\n'
+        '       <p>\n'
+        '           %s'
+        '\n     </p>\n'
+        '   </div>\n'
         '</article>\n'
     )
 
@@ -56,6 +58,7 @@ def create_page(*args):
         '<html>\n'
         '<head>\n'
         '   <meta charset="utf-8">\n'
+        '   <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
         '   <link rel="stylesheet" href="css/style.css">\n'
         '   <title>curated videos</title>\n'
         '</head>\n'
