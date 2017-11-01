@@ -93,12 +93,6 @@ class testCreatePage(unittest.TestCase):
             {MusicVideo:[music, music2], TVShow:[show1, show2]}
         )
 
-    def test_create_entry(self):
-        pass
-    def test_create_section(self):
-        pass
-    def test_create_page(self):
-        pass
 
 if __name__ == '__main__':
     unittest.main()
