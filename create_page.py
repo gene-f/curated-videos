@@ -10,14 +10,14 @@ def group_by_type(*args):
 
 def create_entry_template(p):
     base = (
-        '<article>'
-        '   <h3>{title}</h3>'
-        '   <img src="{img}"></img>'
-        '   <iframe src="{video_url}"></iframe>'
-        '   <p>'
+        '<article>\n'
+        '   <h3>{title}</h3>\n'
+        '   <img src="{img}"></img>\n'
+        '   <iframe src="{video_url}"></iframe>\n'
+        '   <p>\n'
         '       %s'
-        '   </p>'
-        '</article>'
+        '\n   </p>\n'
+        '</article>\n'
     )
 
     inner = '\n<ul>\n'
@@ -35,10 +35,10 @@ def create_entry_template(p):
 
 def create_section(key, videos):
     base = (
-        '<section>'
-        '   <h2>{category}</h2>'
+        '<section>\n'
+        '   <h2>{category}</h2>\n'
         '   {content}'
-        '</section>'
+        '\n</section>\n'
     )
 
     content = ''
@@ -46,5 +46,27 @@ def create_section(key, videos):
     for video in videos:
         content += entry_template.format(**vars(video)) + '\n'
 
-    section = base.format(category, content)
+    section = base.format(content=content)
     return section
+
+
+def create_page(*args):
+    base = (
+        '<html>\n'
+        '<head>\n'
+        '   <meta charset="utf-8">\n'
+        '   <link rel="stylesheet" href="css/style.css">\n'
+        '   <title>curated videos</title>\n'
+        '</head>\n'
+        '<body>\n'
+        '{content}'
+        '\n</body>\n'
+        '</html>'
+    )
+
+    videos_by_type = group_by_type(*args)
+    content = ''
+    for key in videos_by_type:
+        content += create_section(key, videos_by_type[key])
+
+    return base.format(content=content)
