@@ -3,12 +3,16 @@ from create_page import create_page
 
 
 class Movie(Video):
+    category = "Movies"
+
     def __init__(self, title, poster_url, trailer_url, director):
         super(Movie, self).__init__(title, poster_url, trailer_url)
         self.director = director
 
 
 class TVShow(Video):
+    category = "TV Shows"
+
     def __init__(self, title, img, clip_url, season, episode):
         super(TVShow, self).__init__(title, img, clip_url)
         self.season = season

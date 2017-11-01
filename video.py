@@ -1,6 +1,7 @@
 from urllib.parse import urlsplit
 
 class Video:
+    category = "misc"
 
     youtube_domains = (
         'www.youtu.be',

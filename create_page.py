@@ -36,16 +36,18 @@ def create_entry_template(p):
 def create_section(key, videos):
     base = (
         '<section>\n'
+        '<h3>{category}</h3>\n'
         '   {content}'
         '\n</section>\n'
     )
 
+    category = key.category
     content = ''
     entry_template = create_entry_template(videos[0])
     for video in videos:
         content += entry_template.format(**vars(video)) + '\n'
 
-    section = base.format(content=content)
+    section = base.format(category=category, content=content)
     return section
 
 
