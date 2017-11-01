@@ -36,7 +36,6 @@ def create_entry_template(p):
 def create_section(key, videos):
     base = (
         '<section>\n'
-        '   <h2>{category}</h2>\n'
         '   {content}'
         '\n</section>\n'
     )
