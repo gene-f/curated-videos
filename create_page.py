@@ -17,7 +17,8 @@ def create_entry_template(p):
         '       <iframe src="{video_url}"></iframe>\n'
         '       <p>\n'
         '           %s'
-        '\n     </p>\n'
+        '\n         <button type="button" onclick="toggle(this);">play</button> \n'
+        '       </p>\n'
         '   </div>\n'
         '</article>\n'
     )
@@ -63,6 +64,7 @@ def create_page(*args):
         '   <title>curated videos</title>\n'
         '</head>\n'
         '<body>\n'
+        '   <script src="js/script.js"></script>\n'
         '{content}'
         '\n</body>\n'
         '</html>'
